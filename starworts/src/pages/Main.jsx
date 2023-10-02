@@ -27,7 +27,7 @@ export const Main = () => {
       <h1>Starworts Films</h1>
       <ul>
         {data.allFilms.films.map((item, index) => {
-          return <li key={index}>{item.title}</li>;
+          return <p key={index}>{item.title}</p>;
         })}
       </ul>
     </>
