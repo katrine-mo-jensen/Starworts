@@ -1,4 +1,4 @@
-export const Author = () => {
+export const Footer = () => {
 
     return(
         <footer>
