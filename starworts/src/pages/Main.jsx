@@ -5,7 +5,7 @@ import Popup from "reactjs-popup";
 import style from "../pages/main.module.scss";
 
 export const Main = () => {
-  const { data, isLoading, isError, error } = useQuery({
+  const { data, isLoading, error } = useQuery({
     queryKey: ["getStarwarsFilm"],
     queryFn: async () =>
       request(
@@ -19,7 +19,7 @@ export const Main = () => {
     return <p>Loading... </p>;
   }
 
-  if (isError) {
+  if (error) {
     return <p>Error: {error.message}</p>;
   }
 
