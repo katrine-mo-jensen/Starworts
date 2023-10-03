@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { request } from "graphql-request";
 import { getFilms } from "../query/getFilms";
 import Popup from "reactjs-popup";
-import style from "../style/main.module.scss";
+import style from "../pages/main.module.scss";
 
 export const Main = () => {
   const { data, isLoading, isError, error } = useQuery({
@@ -14,7 +14,6 @@ export const Main = () => {
       ),
   });
 
-  console.log("Data", data);
 
   if (isLoading) {
     return <p>Loading... </p>;
@@ -34,6 +33,7 @@ export const Main = () => {
               trigger={<button className="button"> {item.title} </button>}
               modal
               nested
+              key={index}
             >
               {(close) => (
                 <div className={style.modal}>

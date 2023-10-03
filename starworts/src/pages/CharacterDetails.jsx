@@ -6,8 +6,6 @@ import { getCharacterDetails } from "../query/getCharacterDetails";
 export const CharacterDetails = () => {
   const { id } = useParams();
 
-  console.log("id", id);
-
   const { data, isLoading, error } = useQuery({
     queryKey: ["StarwarsCharacter"],
     queryFn: async () =>
@@ -18,7 +16,7 @@ export const CharacterDetails = () => {
       ),
   });
 
-  console.log("Character", data);
+
 
   if (isLoading) {
     return <span>Loading...</span>;

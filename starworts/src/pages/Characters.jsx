@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getCharacter } from "../query/GetCharacters";
 import { request } from "graphql-request";
 import { Link } from "react-router-dom";
+import style from '../pages/characters.module.scss'
 
 export const Characters = () => {
   const { data, isLoading, error } = useQuery({
@@ -21,10 +22,9 @@ export const Characters = () => {
     return <span>Error: {error.message}</span>;
   }
 
-  // console.log("Data", data);
   return (
     <>
-      <section>
+      <section className={style.characterOverview}>
         <ul>
           {data.allPeople.people.map((item, index) => (
             <Link to={`/character/${item.id}`} key={index}>
