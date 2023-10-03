@@ -65,7 +65,7 @@ export const CharacterDetails = () => {
 
       <button>
         {" "}
-        <Link to="/">BACK</Link>{" "}
+        <Link to="/characters">BACK</Link>{" "}
       </button>
     </div>
   );
