@@ -3,6 +3,7 @@ query AllFilms {
     allFilms {
       films {
         title
+        director
         releaseDate
       }
     }

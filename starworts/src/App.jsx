@@ -1,4 +1,5 @@
 import './App.css'
+import { Author } from './components/footer/Footer';
 import { Main } from "./pages/Main";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
@@ -9,6 +10,7 @@ function App() {
     <>
       <QueryClientProvider client={queryClient}>
         <Main/>
+        <Author/>
       </QueryClientProvider>
     </>
   )

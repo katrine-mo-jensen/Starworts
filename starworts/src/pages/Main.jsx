@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { request } from "graphql-request";
 import { getFilms } from "../query/getFilms";
+import Popup from "reactjs-popup";
+import style from "../style/main.module.scss";
 
 export const Main = () => {
   const { data, isLoading, isError, error } = useQuery({
@@ -27,7 +29,28 @@ export const Main = () => {
       <h1>Starworts Films</h1>
       <ul>
         {data.allFilms.films.map((item, index) => {
-          return <p key={index}>{item.title}</p>;
+          return (
+            <Popup
+              trigger={<button className="button"> {item.title} </button>}
+              modal
+              nested
+            >
+              {(close) => (
+                <div className={style.modal}>
+                  <button className="close" onClick={close}>
+                    &times;
+                  </button>
+                  <div className="header">
+                    <h2>{item.title} </h2>
+                  </div>
+                  <div className="content">
+                    <p>Director: {item.director}</p>
+                    <p>Release date: {item.releaseDate}</p>
+                  </div>
+                </div>
+              )}
+            </Popup>
+          );
         })}
       </ul>
     </>
