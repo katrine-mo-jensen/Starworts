@@ -25,6 +25,7 @@ export const Main = () => {
 
   return (
     <>
+    
       <h1>Starworts Films</h1>
       <ul>
         {data.allFilms.films.map((item, index) => {
